@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: #2d2d2d; font-family: 'Roboto', sans-serif;">
+    <div style="max-width: 1200px; width: 100%; display: flex; flex-direction: column; gap: 10px; background-color: rgb(220,220,220); padding: 10px; color: #0a0a0a;border-radius: 20px; margin: 10vh auto 0;">
+        <h1 style="text-align: center; font-weight: normal;">Рецепт для <span
+                style="font-weight: bold">{{ recipe_name.capitalize }}</span></h1>
+        {% for ingredient, amount in recipe.items %}
+            <p style="margin: 0; align-self: center; font-size: 20px"> - {{ ingredient }}: {{ amount }}</p>
+        {% empty %}
+            <h2 style="text-align: center; color:darkred;">Такого рецепта я не знаю :(</h2>
+        {% endfor %}
+        {% if recipe %}
+            <span style="text-align: center; font-size: 12px; border-top: 1px solid #838383; margin-top: 10px; padding-top: 10px">Количество порций - {{ servings }}</span>
+        {% endif %}
+    </div>
+</body>
+</html>
